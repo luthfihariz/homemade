@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Label" parent="TextAppearance.AppCompat">
+        <item name="android:background">@drawable/shape_label</item>
+        <item name="android:padding">@dimen/spacing_xx_small</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+</resources>
