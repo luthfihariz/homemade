@@ -5,23 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/spacing_normal"
-    android:paddingRight="@dimen/spacing_normal"
-    tools:context="com.luthfihariz.homemade.main.MainActivity">
 
-    <com.arlib.floatingsearchview.FloatingSearchView
-        android:id="@+id/fsvSearchRecipe"
-        android:background="@color/transparent"
-        app:floatingSearch_searchHint="@string/hint_find_recipe"
-        app:floatingSearch_backgroundColor="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    tools:context="com.luthfihariz.homemade.main.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvRecipe"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
+        android:paddingLeft="@dimen/spacing_normal"
+        android:paddingRight="@dimen/spacing_normal"
         android:layout_height="wrap_content" />
+
+    <com.lapism.searchview.SearchView
+        android:id="@+id/svRecipeSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 
 

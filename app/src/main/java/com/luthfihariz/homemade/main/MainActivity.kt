@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import com.lapism.searchview.SearchView
+import com.lapism.searchview.SearchView.OnQueryTextListener
 import com.luthfihariz.homemade.R
 import com.luthfihariz.homemade.data.Hit
 import com.luthfihariz.homemade.data.Recipe
@@ -11,6 +13,8 @@ import com.luthfihariz.homemade.data.RecipeRepository
 import com.luthfihariz.homemade.main.adapter.RecipeAdapter
 import com.luthfihariz.homemade.main.adapter.SpacingItemDecoration
 import kotlinx.android.synthetic.main.activity_main.*
+import net.hockeyapp.android.CrashManager
+import net.hockeyapp.android.UpdateManager
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
@@ -26,6 +30,16 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         presenter = MainPresenter(RecipeRepository(), this)
         presenter.searchTodayRandomRecipe()
+
+        svRecipeSearch.versionMargins = SearchView.VersionMargins.TOOLBAR_SMALL
+
+        UpdateManager.register(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        UpdateManager.unregister()
     }
 
     private fun setupRecyclerView() {
@@ -59,6 +73,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     override fun onResume() {
         super.onResume()
+        CrashManager.register(this)
         isActive = true
     }
 
